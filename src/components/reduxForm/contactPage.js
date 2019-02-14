@@ -7,7 +7,10 @@ class ContactPage extends React.Component {
     console.log(values)
   }
   render() {
-    return <ContactForm onSubmit={this.submit} />
+    return <section className="container">
+      <h2>SIgn up form:</h2>
+      <ContactForm onSubmit={this.submit} />
+    </section>
   }
 }
 

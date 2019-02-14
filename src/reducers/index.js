@@ -9,9 +9,7 @@ const reducer = (state=initialState,action) =>{
     return state;
 }
 
-console.log(reducer)
-
 export default combineReducers({
     myReducer : reducer,
-    myForm : formReducer
+    form : formReducer
 });

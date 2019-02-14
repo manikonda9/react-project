@@ -4,56 +4,59 @@ import { Field, reduxForm } from 'redux-form'
 const contactForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>First Name</label>
-        <div>
+    <form onSubmit={handleSubmit} className="form-horizontal">
+      <div className="form-group row">
+        <label className="control-label col-sm-2">First Name :</label>
+        <div className="col-sm-4">
           <Field
             name="firstName"
-            component={input}
+            className="form-control"
+            component="input"
             type="text"
             placeholder="First Name"
           />
         </div>
       </div>
-      <div>
-        <label>Last Name</label>
-        <div>
+      <div className="form-group row">
+        <label className="control-label col-sm-2">Last Name :</label>
+        <div className="col-sm-4">
           <Field
             name="lastName"
-            component={input}
+            className="form-control"
+            component="input"
             type="text"
             placeholder="Last Name"
           />
         </div>
       </div>
-      <div>
-        <label>Email</label>
-        <div>
+      <div className="form-group row">
+        <label className="control-label col-sm-2">Email :</label>
+        <div className="col-sm-4">
           <Field
             name="email"
-            component={input}
+            className="form-control"
+            component="input"
             type="email"
             placeholder="Email"
           />
         </div>
       </div>
-      <div>
-        <label>Sex</label>
-        <div>
-          <label>
+      <div className="form-group row">
+        <label className="control-label col-sm-2">Sex :</label>
+        <div className="col-sm-4">
+          <label className="col-sm-2">
             <Field
               name="sex"
-              component={input}
+              component="input"
               type="radio"
               value="male"
             />{' '}
             Male
           </label>
-          <label>
+          <label className="col-sm-2">
             <Field
               name="sex"
-              component={input}
+              component="input"
               type="radio"
               value="female"
             />{' '}
@@ -61,10 +64,10 @@ const contactForm = props => {
           </label>
         </div>
       </div>
-      <div>
-        <label>Favorite Color</label>
-        <div>
-          <Field name="favoriteColor" component="select">
+      <div className="form-group row">
+        <label className="control-label col-sm-2">Favorite Color :</label>
+        <div className="col-sm-4">
+          <Field name="favoriteColor" component="select" className="form-control">
             <option />
             <option value="ff0000">Red</option>
             <option value="00ff00">Green</option>
@@ -72,29 +75,29 @@ const contactForm = props => {
           </Field>
         </div>
       </div>
-      <div>
-        <label htmlFor="employed">Employed</label>
-        <div>
+      <div className="form-group row">
+        <label htmlFor="employed" className="control-label col-sm-2">Employed :</label>
+        <div className="col-sm-4">
           <Field
             name="employed"
             id="employed"
-            component={input}
+            component="input"
             type="checkbox"
           />
         </div>
       </div>
-      <div>
-        <label>Notes</label>
-        <div>
-          <Field name="notes" component="textarea" />
+      <div className="form-group row">
+        <label className="control-label col-sm-2">Notes :</label>
+        <div className="col-sm-4">
+          <Field name="notes" component="textarea" className="form-control" />
         </div>
       </div>
-      <div>
-        <button type="submit" disabled={pristine || submitting}>
+      <div className="form-group row">
+        <button type="submit" className="btn btn-success col-sm-1 m-2" disabled={pristine || submitting}>
           Submit
         </button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
-          Clear Values
+        <button type="reset" className="btn btn-secondary col-sm-1 m-2" disabled={pristine || submitting} onClick={reset}>
+          Reset
         </button>
       </div>
     </form>
@@ -102,19 +105,19 @@ const contactForm = props => {
 }
 
 const input = ({
-    input,
-    type,
-    placeholder,
-    id,
-    meta: { touched, error }
-  }) => {
-    return (
-      <div>
-        <input {...input} placeholder={placeholder} type={type} id={id} />
-        {touched && error && <p style={{ color: 'red' }}>{error}</p>}
-      </div>
-    );
-  };
+  input,
+  type,
+  placeholder,
+  id,
+  meta: { touched, error }
+}) => {
+  return (
+    <div>
+      <input {...input} placeholder={placeholder} type={type} id={id} />
+      {touched && error && <p style={{ color: 'red' }}>{error}</p>}
+    </div>
+  );
+};
 
 export default reduxForm({
   form: 'simple' // a unique identifier for this form
